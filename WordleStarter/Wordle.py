@@ -1,8 +1,10 @@
 # File: Wordle.py
 
 """
-This module is the starter file for the Wordle assignment.
-BE SURE TO UPDATE THIS COMMENT WHEN YOU WRITE THE CODE.
+Group 3-14
+Hailey Bronson, McKenna Alder, Brian Stone, Alden Transfiguracion
+
+This module contains the logic for the World game.
 """
 
 import random
@@ -13,7 +15,15 @@ from WordleGraphics import WordleGWindow, N_COLS, N_ROWS
 def wordle():
 
     def enter_action(s):
-        gw.show_message("You have to implement this method.")
+        #converts the input string to uppercase for consistency
+        word = s.upper()
+
+        #checks if the word is in the list of valid words
+        if word in FIVE_LETTER_WORDS:
+            gw.show_message("Correct! The word is valid.")
+        else:
+            gw.show_message("Not in word list")
+
 
     def display_solution_word(window, solution_word):
         for col in range(N_COLS):
