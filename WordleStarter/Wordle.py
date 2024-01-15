@@ -15,10 +15,12 @@ from WordleGraphics import WordleGWindow, N_COLS, N_ROWS
 def wordle():
 
     def enter_action(s):
-        #converts the input string to uppercase for consistency
+        # Converts the input string to uppercase for consistency
         word = s.upper()
 
-        #checks if the word is in the list of valid words
+        # Checks if the word is in the list of valid words
+        # First converts back to lowercase to validate whether it's in word list
+        word = s.lower()
         if word in FIVE_LETTER_WORDS:
             gw.show_message("Correct! The word is valid.")
         else:
@@ -27,15 +29,15 @@ def wordle():
 
     def display_solution_word(window, solution_word):
         for col in range(N_COLS):
-            window.set_square_letter(0, col, solution_word[col])
+            window.set_square_letter(0, col, solution_word[col].upper())
 
     gw = WordleGWindow()
     gw.add_enter_listener(enter_action)
 
-    # Choose a random word from the dictionary
+    # Chooses a random word from the dictionary
     solution_word = random.choice(FIVE_LETTER_WORDS)
 
-    # Display the solution word in the first row of the window
+    # Displays the solution word in the first row of the window
     display_solution_word(gw, solution_word)
 
 # Startup code
